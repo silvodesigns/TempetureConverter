@@ -17,13 +17,40 @@
     -->
 
     <h1>Tempeture Converter</h1>
-    <h2>0 Fahrenheit</h2>
-    <form id="converter-calculator">
-      <label for="celcius">Celsius:</label>
-      <input type="text" id="celcsius" name="celsius" required />
-      <label for="fahrenheit">Fahrenheit:</label>
-      <input type="text" id="celcsius" name="fFahrenheit" required />
-      <button>Convert</button>
-    </form>
+    <h2 id="displayTempeture"></h2>
+
+    <label for="celsius">Celsius:</label>
+    <input type="text" id="celsius" name="celsius" required />
+    <label for="fahrenheit">Fahrenheit:</label>
+    <input type="text" id="fahrenheit" name="fahrenheit" />
+    <button id="convert">Convert</button>
+
+    <script type="text/JavaScript">
+      //I need to grab the value of the input tempeture given by the user
+      //then i need to convert the tempeture from C to F and viceversa
+      //then I need to display it to the page
+
+      const celsius = document.getElementById('celsius');
+      const convertBtn = document.getElementById('convert');
+      const displayTemp = document.getElementById('displayTempeture');
+
+
+      //formula converter function
+      function convertC(temp){
+        let fahrenheit = (temp * 1.8) + 32;
+        return fahrenheit
+
+      }
+
+      //event listener
+
+      convertBtn.addEventListener('click', () => {
+        const inputValue = celsius.value;
+        console.log(inputValue);
+        displayTemp.textContent = convertC(inputValue) +  " fahrenheit";
+
+
+      })
+    </script>
   </body>
 </html>
