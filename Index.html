@@ -18,6 +18,7 @@
 
     <h1>Tempeture Converter</h1>
     <h2 id="displayTempeture"></h2>
+    <h2 id="displayTempeture02"></h2>
 
     <label for="celsius">Celsius:</label>
     <input type="text" id="celsius" name="celsius" required />
@@ -33,12 +34,20 @@
       const celsius = document.getElementById('celsius');
       const convertBtn = document.getElementById('convert');
       const displayTemp = document.getElementById('displayTempeture');
+      const displayTemp02 = document.getElementById('displayTempeture02');
 
 
-      //formula converter function
+      //formula converter function celcius to farenheit
       function convertC(temp){
         let fahrenheit = (temp * 1.8) + 32;
         return fahrenheit
+
+      }
+
+      //formula converter function farenheit to celcious
+      function convertF(temp){
+        let cel = (temp - 32);
+        return cel * (5/9)
 
       }
 
@@ -46,8 +55,17 @@
 
       convertBtn.addEventListener('click', () => {
         const inputValue = celsius.value;
-        console.log(inputValue);
-        displayTemp.textContent = convertC(inputValue) +  " fahrenheit";
+        const inputValue02 = fahrenheit.value;
+
+        //only apply formula if there is user input
+        if(inputValue){
+          displayTemp.textContent = convertC(inputValue) +  " fahrenheit";
+
+        }
+        if(inputValue02){
+          displayTemp02.textContent = convertF(inputValue02) +  " celcius";
+
+        }
 
 
       })
