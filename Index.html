@@ -40,14 +40,16 @@
       //formula converter function celcius to farenheit
       function convertC(temp){
         let fahrenheit = (temp * 1.8) + 32;
-        return fahrenheit
+        let formated = Math.round(fahrenheit*100)/100;
+        return formated
 
       }
 
       //formula converter function farenheit to celcious
       function convertF(temp){
-        let cel = (temp - 32);
-        return cel * (5/9)
+        let cel = (temp - 32) * (5/9);
+        let formated = Math.round(cel*100)/100;
+        return formated
 
       }
 
